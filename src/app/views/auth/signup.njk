@@ -3,7 +3,7 @@
 {% block body %}
     <form action="/signup" method="POST" enctype="multipart/form-data">
         <label for="avatar">
-            <img src="/images/users.png" height="24"/>
+            <img src="/images/avatar.svg" height="24"/>
         </label>
 
         <input id="avatar" name="avatar" type="file"/>
@@ -19,7 +19,7 @@
 
         <button type="submit">Criar conta</button>
 
-        <a href="/">Já possuo conta</a>
+        <a href="/signin">Já possuo conta</a>
     </form>
 
     <script type="text/javascript">
