@@ -23,5 +23,10 @@ module.exports = (sequelize, DataTypes) => {
         }
     )
 
+    // Creating a method to the current class
+    User.prototype.checkPassword = function (password) {
+        return bcrypt.compare(password, this.password_hash)
+    }
+
     return User
 }
