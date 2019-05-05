@@ -1,7 +1,7 @@
 const { User } = require('../models')
 
 class SessionController {
-    async create (req, res) {
+    async index (req, res) {
         return res.render('auth/signin')
     }
 
