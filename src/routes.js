@@ -6,6 +6,11 @@ const routes = express.Router()
 
 const UserController = require('./app/controllers/UserController')
 const SessionController = require('./app/controllers/SessionController')
+const DashboardController = require('./app/controllers/DashboardController')
+const FileController = require('./app/controllers/FileController')
+const SchedulingController = require('./app/controllers/SchedulingController')
+const AvailabilityController = require('./app/controllers/AvailabilityController')
+
 const authMiddleware = require('./app/middlewares/auth')
 const guestMiddleware = require('./app/middlewares/guest')
 
@@ -17,22 +22,22 @@ routes.use((req, res, next) => {
     return next()
 })
 
+routes.use('/app', authMiddleware)
+
 routes.get('/signup', guestMiddleware, UserController.create)
 routes.post('/signup', upload.single('avatar'), UserController.store)
 
-routes.get('/signin', guestMiddleware, (req, res) => {
-    return res.render('auth/signin')
-})
-
+routes.get('/signin', guestMiddleware, SessionController.index)
 routes.post('/signin', SessionController.store)
 
-// Authentication Middleware 
-routes.use('/app', authMiddleware)
-
 routes.get('/app/logout', SessionController.destroy)
+routes.get('/app/dashboard', DashboardController.index)
 
-routes.get('/app/dashboard', (req, res) => {
-    return res.render('dashboard')
-})
+routes.get('/files/:file', FileController.show)
+
+routes.get('/app/schedulings/new/:provider', SchedulingController.create)
+routes.post('/app/schedulings/new/:provider', SchedulingController.store)
+
+routes.get('/app/availability/:provider', AvailabilityController.index)
 
 module.exports = routes
