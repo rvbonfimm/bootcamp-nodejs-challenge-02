@@ -10,6 +10,7 @@ const DashboardController = require('./app/controllers/DashboardController')
 const FileController = require('./app/controllers/FileController')
 const SchedulingController = require('./app/controllers/SchedulingController')
 const AvailabilityController = require('./app/controllers/AvailabilityController')
+const ServiceProviderController = require('./app/controllers/ServiceProviderController')
 
 const authMiddleware = require('./app/middlewares/auth')
 const guestMiddleware = require('./app/middlewares/guest')
@@ -37,6 +38,7 @@ routes.get('/files/:file', FileController.show)
 
 routes.get('/app/schedulings/new/:provider', SchedulingController.create)
 routes.post('/app/schedulings/new/:provider', SchedulingController.store)
+routes.get('/app/schedulings', ServiceProviderController.index)
 
 routes.get('/app/availability/:provider', AvailabilityController.index)
 

@@ -1,0 +1,54 @@
+{% extends "_layouts/default.njk" %}
+
+{% block body %}
+    {% if ProviderSchedulesResult %}
+        <div class="outerdiv">
+            <p id="title">Abaixo, sua lista de agendamentos marcados:</p>
+            <br><br>
+
+            {% for providerSchedule in ProviderSchedulesResult %}
+                <div class="innerdiv">
+                    <ul style="font-size: 18px">
+                        <strong id="subtitle">Dados do Agendamento</strong>
+                        <br><br>
+
+                        <div class="provider">
+                            <p>Data:
+                                {{ providerSchedule.scheduleDay }} / {{ providerSchedule.scheduleMonth }} / {{ providerSchedule.scheduleYear }}
+                            </p>
+                            <br>
+                            <p>Hora:
+                                {{ providerSchedule.scheduleHour }}
+                            </p>
+                            <br>
+                        </div>
+
+                        <br><hr><br>
+
+                        <strong id="subtitle">Dados do Cliente</strong>
+                        <br><br>
+
+                        <div class="provider">
+                            <img id="providerlist" src="/files/{{ providerSchedule.userAvatar }}"/>
+                            <p>Nome: {{ providerSchedule.userName }}</p>
+                            <br>
+                            <p>E-mail: {{ providerSchedule.userEmail }}</p>
+                            <br>
+                        </div>
+                    </ul>
+                </div>
+                <br><br>
+            {% endfor %}
+
+            <br>
+
+            <div style="text-align: center;">
+                <p id="title">Caso você também queira agendar um serviço, use o link abaixo:</p>
+                <br>
+                <a style="font-size: 20px;" href="/app/dashboard">Agendar Serviço</a>
+            </div>
+        </div>
+    {% else %}
+        <strong>Você não possui nenhum agendamento marcado.</strong>
+    {% endif %}
+{% endblock %}
