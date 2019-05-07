@@ -131,12 +131,40 @@ body {
 }
 
 .main-wrapper .content {
-    display: flex;
-    flex-direction: column;
-    max-width: 350px;
-    width: 100%;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* position: relative; */
+    width: 30%;
+    /* height: 85%; */
     background: #fff;
     border-radius: 4px;
+    padding: 30px 20px;
+    margin-bottom: 3%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.main-wrapper .outerdiv {
+    width: 80%;
+    background: #fff;
+    border-radius: 4px;
+    padding: 30px 20px;
+    margin-bottom: 3%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.main-wrapper .outerdiv p#title{
+    font-size: 24px;
+    text-align: center;
+}
+
+.main-wrapper .outerdiv strong#subtitle{
+    font-size: 20px;
+}
+
+.main-wrapper .innerdiv {
+    background: #fff;
+    border-radius: 5px;
+    border-style: groove;
     padding: 30px 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
@@ -168,7 +196,7 @@ body {
 }
 
 .main-wrapper .content p {
-    font-size: 14px;
+    font-size: 18px;
     color: #666;
     margin-bottom: 20px;
     text-align: center;
@@ -194,7 +222,7 @@ ul.providers {
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -202,13 +230,24 @@ ul.providers {
 
 .provider div {
     display: flex;
-    align-items: center;
+}
+
+.provider P {
+    font-size: 20px;
 }
 
 .provider img {
-    width: 48px;
-    height: 48px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
+    border-style: groove;
+}
+
+.provider img#providerlist {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border-style: groove;
 }
 
 .provider strong {
