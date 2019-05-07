@@ -4,8 +4,14 @@ module.exports = (sequelize, DataTypes) => {
     })
 
     Scheduling.associate = models => {
-        Scheduling.belongsTo(models.User, { foreignKey: 'user_id' })
-        Scheduling.belongsTo(models.User, { foreignKey: 'provider_id' })
+        Scheduling.belongsTo(models.User, {
+            as: 'user',
+            foreignKey: 'user_id'
+        })
+        Scheduling.belongsTo(models.User, {
+            as: 'provider',
+            foreignKey: 'provider_id'
+        })
     }
 
     return Scheduling
