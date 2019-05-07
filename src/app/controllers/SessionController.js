@@ -23,7 +23,12 @@ class SessionController {
         // Save the current user to the session
         req.session.user = user
 
-        return res.redirect('/app/dashboard')
+        // Check if the current user in a service provider
+        if (user.provider === true) {
+            return res.redirect('/app/dashboard/services')
+        } else {
+            return res.redirect('/app/dashboard')
+        }
     }
 
     destroy (req, res) {
