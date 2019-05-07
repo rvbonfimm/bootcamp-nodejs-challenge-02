@@ -25,7 +25,7 @@ class SessionController {
 
         // Check if the current user in a service provider
         if (user.provider === true) {
-            return res.redirect('/app/dashboard/services')
+            return res.redirect('/app/schedulings')
         } else {
             return res.redirect('/app/dashboard')
         }
